@@ -1,0 +1,7 @@
+build/
+app/build/
+.gradle/
+local.properties
+*.apk
+app/src/main/jniLibs/
+app/src/main/assets/cacert.pem
