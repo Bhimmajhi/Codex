@@ -25,13 +25,18 @@ Script browser mein GitHub login maangegi, private repo banayegi, aur code push 
 
 1. Repo ke **Actions** tab mein "Build APK" run dikhega. Lagbhag 15 se 30 minute lagte hain, kyunki Codex binary lagbhag 300 MB ki hai.
 2. Complete hone par repo ke **Releases** section mein `build-N` release hoga, jisme `codex-terminal.apk` attached hogi.
-3. Phone ke browser mein ye link kholo (apna username aur repo naam daalo):
+3. Actions run kholo, upar **Summary** mein "Phone par install ka link" dikhega. Wahi link phone ke browser mein kholo. (Repo ka naam alag ho to link bhi alag hoga, isliye guess mat karo.)
+4. Repo **Private** hai to phone ke browser mein pehle GitHub login karo, warna download galat page ka hota hai aur install nahi hota.
+5. APK download karke install karo. Pehli baar Android "unknown apps" allow karne ko kahega, to allow karo.
 
-   `https://github.com/USERNAME/codex-terminal/releases/latest/download/codex-terminal.apk`
+Har build ka `versionCode` alag hota hai (run number), aur har APK ek hi sideload key se signed hai, to naya build purane version par update ho jaata hai.
 
-4. APK download karke install karo. Pehli baar Android "unknown apps" allow karne ko kahega, to allow karo.
+## Install nahi ho raha?
 
-Naya build hone par same link naya APK dega. Har APK ek hi sideload key se signed hai, to purane version par update ho jaayega.
+- **"Package appears to be invalid" / "There was a problem parsing the package"**: file APK nahi hai. Aksar ye HTML page hota hai jo login na hone par download hota hai. GitHub login karke link dobara kholo. Actions ke **Artifacts** wali zip ko mat install karo, usko pehle extract karna padta hai; Release wali `codex-terminal.apk` seedha install hoti hai.
+- **"App not installed"**: purana version kisi aur key se signed ho sakta hai. Pehle purana "Codex Terminal" app uninstall karo, phir install karo.
+- **"Insufficient storage"**: Codex binary lagbhag 314 MB ki hai aur install ke waqt utni hi jagah extract hoti hai. Phone par kam se kam 1 GB free rakho.
+- **Android version / architecture**: Android 8.0 (API 26) ya naya, aur arm64 phone chahiye. Purane phone ya x86 emulator par app nahi chalega.
 
 ## Use
 
