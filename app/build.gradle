@@ -3,6 +3,10 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+// On GitHub Actions GITHUB_RUN_NUMBER grows with every build, so each APK is a newer version
+// and installs over the previous one. Locally it falls back to 1.
+def buildNumber = (System.getenv('GITHUB_RUN_NUMBER') ?: '1').toInteger()
+
 android {
     namespace 'com.example.codexterminal'
     compileSdk 34
@@ -11,8 +15,8 @@ android {
         applicationId 'com.example.codexterminal'
         minSdk 26
         targetSdk 34
-        versionCode 1
-        versionName '1.0'
+        versionCode buildNumber
+        versionName "1.0.${buildNumber}"
 
         ndk {
             abiFilters 'arm64-v8a'
